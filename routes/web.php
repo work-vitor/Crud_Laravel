@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\EditoraController;
 use App\Http\Controllers\LivroController;
+use App\Models\Editora;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+//LIVRO
 
 //Index
 Route::get('/livros', [LivroController::class, 'index'])->name('livros.index');
@@ -38,3 +43,16 @@ Route::get('/livros/edit/{id}', [LivroController::class, 'edit'])->name('livros.
 
 //update
 Route::put('/livros/{id}', [LivroController::class, 'update'])->name('livros.update');
+
+
+//EDITORA
+Route::get('editoras/', [EditoraController::class, 'index'])->name('editoras.index');
+
+//create
+Route::get('editoras/create', [EditoraController::class, 'create'])->name('editoras.create');
+
+//Store Editoras
+Route::post('/editoras', [EditoraController::class, 'store'])->name('editoras.store');
+
+//Read
+Route::get('/editoras/{id}', [EditoraController::class, 'show'])->name('editoras.show');
