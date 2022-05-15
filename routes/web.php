@@ -58,5 +58,10 @@ Route::post('/editoras', [EditoraController::class, 'store'])->name('editoras.st
 Route::get('/editoras/{id}', [EditoraController::class, 'show'])->name('editoras.show');
 
 //Delete
-Route::delete('/livros/{id}', [EditoraController::class, 'destroy'])->name('editoras.destroy');
+Route::delete('/editoras/{id}', [EditoraController::class, 'destroy'])->name('editoras.destroy');
 
+//Edit
+Route::get('/editoras/edit/{id}', [EditoraController::class, 'edit'])->name('editoras.edit');
+
+//Update
+Route::put('/editoras/{id}', [EditoraController::class, 'update'])->name('editora.update');

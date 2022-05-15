@@ -53,4 +53,32 @@ class EditoraController extends Controller
             ->route('editoras.index')
             ->with('message', 'Editora deletada com sucesso!');
     }
+
+    //edit
+    public function edit($id)
+    {
+        $editora = Editora::find($id);
+        if (!$editora) {
+            return redirect()
+                ->route('editoras.index')
+                ->with('message', 'Erro: Editora nao encontrada!');
+        }
+        return view('editoras.edit', compact('editora'));
+    }
+
+    //update
+    public function update(StoreUpdateEditora $request, $id)
+    {
+        $editora = Editora::find($id);
+        if (!$editora) {
+            return redirect()
+                ->route('editoras.index')
+                ->with('message', 'Erro: Editora nao encontrada!');
+        }
+        $editora->update($request->all());
+
+        return redirect()
+        ->route('editoras.index')
+        ->with('message', 'Editora editada com sucesso!');
+    }
 }
