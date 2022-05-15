@@ -11,3 +11,11 @@
     <p>ISBN: {{$livro->isbn}}</p>
     <hr>
 @endforeach
+
+@if (session('message'))
+    <div>
+        <h3>{{session('message')}}</h3>
+    </div>
+@endif
+
+<button><a href="{{route('livros.create')}}">Inserir um novo Livro</a></button>

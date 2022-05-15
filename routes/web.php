@@ -29,3 +29,6 @@ Route::post('/livros', [LivroController::class, 'store'])->name('livros.store');
 
 //read
 Route::get('/livros/{id}', [LivroController::class, 'show'])->name('livros.show');
+
+//delete
+Route::delete('/livros/{id}', [LivroController::class, 'destroy'])->name('livros.destroy');

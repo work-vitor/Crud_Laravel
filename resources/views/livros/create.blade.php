@@ -15,8 +15,9 @@
 
         <br>
         
-
+        <button><a href="{{route('livros.index')}}">Voltar</a></button>
         <button type="submit">Enviar</button>
+        
 
     </form>
 
