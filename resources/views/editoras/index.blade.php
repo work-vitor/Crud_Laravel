@@ -11,4 +11,10 @@
     <hr>
 @endforeach
 
+@if (session('message'))
+    <div>
+        <h3>{{session('message')}}</h3>
+    </div>
+@endif
+
 <button><a href="{{route('editoras.create')}}">Inserir uma nova editora</a></button>

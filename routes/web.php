@@ -56,3 +56,7 @@ Route::post('/editoras', [EditoraController::class, 'store'])->name('editoras.st
 
 //Read
 Route::get('/editoras/{id}', [EditoraController::class, 'show'])->name('editoras.show');
+
+//Delete
+Route::delete('/livros/{id}', [EditoraController::class, 'destroy'])->name('editoras.destroy');
+

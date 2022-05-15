@@ -9,29 +9,48 @@ use Illuminate\Http\Request;
 class EditoraController extends Controller
 {
     //Index
-    public function index(){
+    public function index()
+    {
         $editoras = Editora::all();
         return view('editoras.index', compact('editoras'));
     }
 
     //create
-    public function create(){
+    public function create()
+    {
         return view('editoras.create');
     }
 
-    public function store(StoreUpdateEditora $request){
+    public function store(StoreUpdateEditora $request)
+    {
         Editora::create($request->all());
         return redirect()->route('editoras.index');
     }
 
     //Read
-    public function show($id){
-        $editora= Editora::find($id);
-        if(!$editora){
+    public function show($id)
+    {
+        $editora = Editora::find($id);
+        if (!$editora) {
             return redirect()
                 ->route('editoras.index')
                 ->with('message', 'Erro: Editora nao encontrada');
         }
         return view('editoras.show', compact('editora'));
+    }
+
+    //Delete
+    public function destroy($id)
+    {
+        $editora = Editora::find($id);
+        if (!$editora) {
+            return redirect()
+                ->route('editoras.index')
+                ->with('message', 'Erro: Editora nao encontrada!');
+        }
+        $editora->delete();
+        return redirect()
+            ->route('editoras.index')
+            ->with('message', 'Editora deletada com sucesso!');
     }
 }
