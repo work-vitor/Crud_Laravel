@@ -54,4 +54,31 @@ class LivroController extends Controller
             ->route('livros.index')
             ->with('message', 'Livro deletado com sucesso');
     }
+
+    //edit
+    public function edit($id)
+    {
+        $livro = Livro::find($id);
+        if (!$livro) {
+            return redirect()
+                ->route('livros.index')
+                ->with('message', 'Erro: Livro não encontrado');
+        }
+        return view('livros.edit', compact('livro'));
+    }
+
+    public function update(StoreUpdateLivro $request, $id)
+    {
+        $livro = Livro::find($id);
+        if (!$livro) {
+            return redirect()
+                ->route('livros.index')
+                ->with('message', 'Erro: Livro não encontrado');
+        }
+
+        $livro->update($request->all());
+        return redirect()
+            ->route('livros.index')
+            ->with('message', 'Livro Editado com sucesso!');
+    }
 }

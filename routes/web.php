@@ -32,3 +32,9 @@ Route::get('/livros/{id}', [LivroController::class, 'show'])->name('livros.show'
 
 //delete
 Route::delete('/livros/{id}', [LivroController::class, 'destroy'])->name('livros.destroy');
+
+//edit
+Route::get('/livros/edit/{id}', [LivroController::class, 'edit'])->name('livros.edit');
+
+//update
+Route::put('/livros/{id}', [LivroController::class, 'update'])->name('livros.update');
