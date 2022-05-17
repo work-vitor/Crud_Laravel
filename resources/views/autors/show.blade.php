@@ -9,11 +9,11 @@
     
 </ul>
 
-<form action="" method="POST">
+<form action="{{route('autors.destroy', $autors->id)}}" method="POST">
     @csrf
     <input type="hidden" name="_method" value="DELETE">
     <button><a href="{{route('autors.index')}}">Voltar</a></button>
-    <button type="submit">Deleta a editora </button>
+    <button type="submit">Deleta Autor </button>
     <button ><a href="">Editar Autor</a> </button>
 </form>
 <hr>

@@ -78,3 +78,6 @@ Route::post('/autors', [AutorController::class, 'store'])->name('autors.store');
 
 //Read
 Route::get('/autors/{id}', [AutorController::class, 'show'])->name('autors.show');
+
+//Delete
+Route::delete('/autors/{id}', [AutorController::class, 'destroy'])->name('autors.destroy');
