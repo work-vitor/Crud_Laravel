@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AutorController;
 use App\Http\Controllers\EditoraController;
 use App\Http\Controllers\LivroController;
 use App\Models\Editora;
@@ -65,3 +66,15 @@ Route::get('/editoras/edit/{id}', [EditoraController::class, 'edit'])->name('edi
 
 //Update
 Route::put('/editoras/{id}', [EditoraController::class, 'update'])->name('editora.update');
+
+//AUTOR
+Route::get('/autors', [AutorController::class, 'index'])->name('autors.index');
+
+//create
+Route::get('/autors/create', [AutorController::class, 'create'])->name('autors.create');
+
+//store
+Route::post('/autors', [AutorController::class, 'store'])->name('autors.store');
+
+//Read
+Route::get('/autors/{id}', [AutorController::class, 'show'])->name('autors.show');
