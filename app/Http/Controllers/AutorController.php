@@ -53,4 +53,31 @@ class AutorController extends Controller
             ->route('autors.index')
             ->with('message', 'Autor deletado com sucesso!');
     }
+
+    //Edit
+    public function edit($id)
+    {
+        $autors = Autor::find($id);
+        if (!$autors) {
+            return redirect()
+                ->route('autors.index')
+                ->with('message', 'Erro! Autor nao encontrado!');
+        }
+        return view('autors.edit', compact('autors'));
+    }
+
+    //Update
+    public function update(StoreUpdateAutor $request, $id){
+        $autors = Autor::find($id);
+        if (!$autors) {
+            return redirect()
+                ->route('autors.index')
+                ->with('message', 'Erro! Autor nao encontrado!');
+        }
+        $autors->update($request->all());
+
+        return redirect()
+                ->route('autors.index')
+                ->with('message', 'Autor editado com sucesso!');
+    }
 }

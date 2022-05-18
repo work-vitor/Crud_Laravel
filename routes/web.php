@@ -3,6 +3,7 @@
 use App\Http\Controllers\AutorController;
 use App\Http\Controllers\EditoraController;
 use App\Http\Controllers\LivroController;
+use App\Models\Autor;
 use App\Models\Editora;
 use Illuminate\Support\Facades\Route;
 
@@ -81,3 +82,9 @@ Route::get('/autors/{id}', [AutorController::class, 'show'])->name('autors.show'
 
 //Delete
 Route::delete('/autors/{id}', [AutorController::class, 'destroy'])->name('autors.destroy');
+
+//Edit
+Route::get('/livros/edit/{id}', [AutorController::class, 'edit'])->name('autors.edit');
+
+//Update
+Route::put('/autors/{id}', [AutorController::class, 'update'])->name('autors.update');

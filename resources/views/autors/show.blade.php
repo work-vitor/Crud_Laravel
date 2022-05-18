@@ -14,6 +14,6 @@
     <input type="hidden" name="_method" value="DELETE">
     <button><a href="{{route('autors.index')}}">Voltar</a></button>
     <button type="submit">Deleta Autor </button>
-    <button ><a href="">Editar Autor</a> </button>
+    <button ><a href="{{route('autors.edit', $autors->id)}}">Editar Autor</a> </button>
 </form>
 <hr>
