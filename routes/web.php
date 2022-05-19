@@ -84,7 +84,7 @@ Route::get('/autors/{id}', [AutorController::class, 'show'])->name('autors.show'
 Route::delete('/autors/{id}', [AutorController::class, 'destroy'])->name('autors.destroy');
 
 //Edit
-Route::get('/livros/edit/{id}', [AutorController::class, 'edit'])->name('autors.edit');
+Route::get('/autors/edit/{id}', [AutorController::class, 'edit'])->name('autors.edit');
 
 //Update
 Route::put('/autors/{id}', [AutorController::class, 'update'])->name('autors.update');
