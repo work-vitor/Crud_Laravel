@@ -88,3 +88,6 @@ Route::get('/autors/edit/{id}', [AutorController::class, 'edit'])->name('autors.
 
 //Update
 Route::put('/autors/{id}', [AutorController::class, 'update'])->name('autors.update');
+
+//Search
+Route::any('/livros/search', [LivroController::class, 'search'])->name('livros.search');

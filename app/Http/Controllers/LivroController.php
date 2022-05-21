@@ -11,7 +11,7 @@ class LivroController extends Controller
     //index
     public function index()
     {
-        $livros = Livro::all();
+        $livros = Livro::orderBy('titulo')->paginate(5);
         return view('livros.index', compact('livros'));
     }
 
@@ -80,5 +80,14 @@ class LivroController extends Controller
         return redirect()
             ->route('livros.index')
             ->with('message', 'Livro Editado com sucesso!');
+    }
+
+    //Search
+    public function search(Request $request){
+        $filters = $request->except('_token');
+        $livros = Livro::where('titulo', 'LIKE', "%$request->search%")
+            ->orWhere('idioma', 'LIKE', "%$request->search%")
+            ->paginate();
+        return view('livros.index', compact('livros', 'filters'));
     }
 }

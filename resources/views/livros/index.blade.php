@@ -1,5 +1,18 @@
 <h1>Lista de Livros</h1>
 
+<div>
+    <form method="post" action="{{route('livros.search')}}">
+        @csrf
+        <p>Buscar:
+            <input type="text" name="search" id="search" placeholder="Digite sua busca">
+            <button type="submit">Buscar</button>
+            <button><a href="{{route('livros.create')}}">Inserir um novo Livro</a></button>
+        </p>
+    </form>
+</div>
+
+<hr>
+
 @foreach ($livros as $livro)
 
     <p>
@@ -18,4 +31,9 @@
     </div>
 @endif
 
-<button><a href="{{route('livros.create')}}">Inserir um novo Livro</a></button>
+
+@if (isset($filters))
+    {{$livros->appends($filters)->links()}}
+@else
+    {{$livros->links()}}
+@endif
