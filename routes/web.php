@@ -46,6 +46,11 @@ Route::get('/livros/edit/{id}', [LivroController::class, 'edit'])->name('livros.
 //update
 Route::put('/livros/{id}', [LivroController::class, 'update'])->name('livros.update');
 
+//Search -> Livros
+Route::any('/livros/search', [LivroController::class, 'search'])->name('livros.search');
+
+
+
 
 //EDITORA
 Route::get('editoras/', [EditoraController::class, 'index'])->name('editoras.index');
@@ -68,6 +73,14 @@ Route::get('/editoras/edit/{id}', [EditoraController::class, 'edit'])->name('edi
 //Update
 Route::put('/editoras/{id}', [EditoraController::class, 'update'])->name('editora.update');
 
+//Search -> Editora
+Route::any('/editoras/search', [EditoraController::class, 'search'])->name('editoras.search');
+
+
+
+
+
+
 //AUTOR
 Route::get('/autors', [AutorController::class, 'index'])->name('autors.index');
 
@@ -89,5 +102,3 @@ Route::get('/autors/edit/{id}', [AutorController::class, 'edit'])->name('autors.
 //Update
 Route::put('/autors/{id}', [AutorController::class, 'update'])->name('autors.update');
 
-//Search
-Route::any('/livros/search', [LivroController::class, 'search'])->name('livros.search');

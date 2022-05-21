@@ -11,7 +11,7 @@ class EditoraController extends Controller
     //Index
     public function index()
     {
-        $editoras = Editora::all();
+        $editoras = Editora::orderBy('nome')->paginate(5);
         return view('editoras.index', compact('editoras'));
     }
 
@@ -80,5 +80,14 @@ class EditoraController extends Controller
         return redirect()
         ->route('editoras.index')
         ->with('message', 'Editora editada com sucesso!');
+    }
+
+    //Search 
+    public function search(Request $request){
+        $filters = $request->except('_token');
+        $editoras = Editora::where('nome', 'LIKE', "%$request->search%")
+            ->orWhere('site', 'LIKE', "%$request->search%")
+            ->paginate();
+        return view('editoras.index', compact('editoras', 'filters'));
     }
 }
