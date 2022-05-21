@@ -1,5 +1,16 @@
 <h1>Lista de Autores</h1>
 
+<div>
+    <form method="post" action="{{route('autors.search')}}">
+        @csrf
+        <p>Buscar:
+            <input type="text" name="search" id="search" placeholder="Digite sua busca">
+            <button type="submit">Buscar</button>
+            <button><a href="{{route('autors.create')}}">Inserir um novo autor</a></button>
+        </p>
+    </form>
+</div>
+
 @foreach ($autors as $autor)
     <p>
         Nome: {{$autor->nome}}
@@ -17,4 +28,9 @@
     </div>
 @endif
 
-<button><a href="{{route('autors.create')}}">Inserir um novo autor</a></button>
+
+@if (isset($filters))
+    {{$autors->appends($filters)->links()}}
+@else
+    {{$autors->links()}}
+@endif

@@ -11,7 +11,7 @@ class AutorController extends Controller
     //Index
     public function index()
     {
-        $autors = Autor::all();
+        $autors = Autor::orderBy('nome')->paginate(5);
         return view('autors.index', compact('autors'));
     }
 
@@ -79,5 +79,14 @@ class AutorController extends Controller
         return redirect()
                 ->route('autors.index')
                 ->with('message', 'Autor editado com sucesso!');
+    }
+
+    //Search 
+    public function search(Request $request){
+        $filters = $request->except('_token');
+        $autors = Autor::where('nome', 'LIKE', "%$request->search%")
+            ->orWhere('area', 'LIKE', "%$request->search%")
+            ->paginate();
+        return view('autors.index', compact('autors', 'filters'));
     }
 }
