@@ -10,3 +10,27 @@
 ## Crud em Laravel
 
 Crud em laravel, simulando as 4 operações básicas de Create, Read, Update e Delete.
+
+
+
+## Create
+
+
+![create](https://user-images.githubusercontent.com/42449194/169698972-a8c54de0-c924-40ec-bb25-c84f1d2fe690.png)
+
+
+## Read
+
+![Read](https://user-images.githubusercontent.com/42449194/169698978-70dd2be8-9518-4169-855f-69b1639628ff.png)
+
+
+## Update
+
+![Update](https://user-images.githubusercontent.com/42449194/169699011-432ef100-347b-476a-bea3-44b654e8bd06.png)
+
+
+## Delete -> Show
+
+![show](https://user-images.githubusercontent.com/42449194/169699025-089967bf-c37c-4548-9530-96c4e8385e81.png)
+
+
