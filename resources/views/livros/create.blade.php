@@ -1,7 +1,7 @@
 <div>
 
 
-    <form method="post" action="{{ route('livros.store')}}">
+    <form method="post" action="{{ route('livros.store')}}" enctype="multipart/form-data">
 
         <input type="hidden" name="_token" value="{{csrf_token()}}">
 
@@ -12,6 +12,8 @@
         <p>Idioma: <input type="text" name="idioma" id="idioma" value="{{old('idioma')}}"></p>
 
         <p>ISBN: <input type="text" name="isbn" id="isbn" value="{{old('isbn')}}"></p>
+
+        <p>Capa: <input type="file" name="capa" id="capa"></p>
 
         <br>
         

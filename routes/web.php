@@ -104,3 +104,6 @@ Route::put('/autors/{id}', [AutorController::class, 'update'])->name('autors.upd
 
 //Search 
 Route::any('/autors/search', [AutorController::class, 'search'])->name('autors.search');
+
+
+

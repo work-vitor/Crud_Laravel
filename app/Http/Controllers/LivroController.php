@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUpdateLivro;
 use Illuminate\Http\Request;
 use App\Models\Livro;
+use Illuminate\Support\Str;
+
 
 class LivroController extends Controller
 {
@@ -23,8 +25,16 @@ class LivroController extends Controller
 
     public function store(StoreUpdateLivro $request)
     {
-        Livro::create($request->all());
-
+        $data = $request->all();
+        if ($request->capa->isValid()) {
+            $nameFile = Str::of($request->isbn)->slug('-'). '.' . $request->capa->getClientOriginalExtension();
+            $imagem = $request->capa->storeAs('livro', $nameFile);
+            $data['capa']= $imagem;
+            Livro::create($data);
+            return redirect()->route('livros.index');
+        }else{
+            return redirect()->route('livros.index')->with('message', 'Arquivo de imagem invalido');
+        }
         return redirect()->route('livros.index');
     }
 
