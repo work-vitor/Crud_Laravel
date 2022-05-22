@@ -34,3 +34,7 @@ Crud em laravel, simulando as 4 operações básicas de Create, Read, Update e D
 ![show](https://user-images.githubusercontent.com/42449194/169699025-089967bf-c37c-4548-9530-96c4e8385e81.png)
 
 
+## Search
+
+![Search](https://user-images.githubusercontent.com/42449194/169699096-3614fc35-72bc-4bb0-9b93-7edbd175ede7.png)
+
