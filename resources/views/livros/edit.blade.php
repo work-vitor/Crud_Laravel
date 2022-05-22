@@ -21,6 +21,8 @@
 
         <p>ISBN: <input type="text" name="isbn" id="isbn" value="{{$livro->isbn}}"></p>
 
+        <p><img src="{{url("storage/{$livro->capa}")}}" alt="{{$livro->titulo}}" style="max-width:100px"></p>
+
         <br>
         
         <button><a href="{{route('livros.index')}}">Voltar</a></button>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUpdateLivro;
 use Illuminate\Http\Request;
 use App\Models\Livro;
+use App\Models\Midia;
 use Illuminate\Support\Str;
 
 
@@ -47,7 +48,13 @@ class LivroController extends Controller
                 ->route('livros.index')
                 ->with('message', 'Livro não encontrado');
         }
-        return view('livros.show', compact('livro'));
+        $midia = $livro->midia;
+        if($midia == null){
+            $midia = new Midia();
+            $midia->nome='';
+            $midia->descricao='';
+        }
+        return view('livros.show', compact('livro', 'midia'));
     }
 
     //delete

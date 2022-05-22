@@ -3,6 +3,7 @@
 use App\Http\Controllers\AutorController;
 use App\Http\Controllers\EditoraController;
 use App\Http\Controllers\LivroController;
+use App\Http\Controllers\MidiaController;
 use App\Models\Autor;
 use App\Models\Editora;
 use Illuminate\Support\Facades\Route;
@@ -106,4 +107,6 @@ Route::put('/autors/{id}', [AutorController::class, 'update'])->name('autors.upd
 Route::any('/autors/search', [AutorController::class, 'search'])->name('autors.search');
 
 
+//ROTA CRUD MIDIA
+Route::resource('midias', MidiaController::class);
 

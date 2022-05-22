@@ -5,6 +5,13 @@
     <li>ISBN: {{$livro->isbn}}</li>
     <li>Ano: {{$livro->ano}}</li>
     <li>Iidoma: {{$livro->idioma}}</li>
+    <li>Capa: <br>
+        <img src="{{url("storage/{$livro->capa}")}}" alt="{{$livro->titulo}}" style="max-width:100px">
+    </li>
+    <li>MíDIA</li>
+    <li>Nome da mídia: {{$midia->nome}}</li>
+    <li>Descrição da mídia: {{$midia->descricao}}</li>
+
 
     
 </ul>
